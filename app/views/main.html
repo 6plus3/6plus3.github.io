@@ -1,0 +1,50 @@
+<div class="main">
+	<div class="container">
+		<ul class="content-home">
+			<li class="col-sm-4" ng-repeat="topic in topics">
+				<a href="#/items/{{topic.id}}" class="item-link" title="">
+					<div class="bannerBox">
+						<img src="images/topic{{$index+1}}.jpg" class="item-img" title="" alt="" width="100%" height="100%">
+						<div class="item-html">
+							<h3>{{topic.name}}</h3>
+
+							<p>日本最热门的{{topic.name}}</p>
+							<button>Shop now!</button>
+						</div>
+					</div>
+				</a>
+			</li>
+			<div class="clearfix"> </div>
+		</ul>
+	</div>
+	<div class="middle_content">
+		<div class="container">
+			<h2>Welcome</h2>
+			<h3>美妆推荐</h3>
+			<p>XXXXXXXXXXX</p>
+		</div>
+	</div>
+	<div class="content_middle_bottom">
+		<div class="header-left" id="home">
+			<section>
+				<ul class="lb-album">
+					<li ng-repeat="blog in blogs">
+						<a href="#{{blog.id}}">
+							<img src="images/{{blog.id}}.jpg" class="img-responsive" alt="image01" />
+							<span>{{blog.title}}</span>
+						</a>
+						<div class="lb-overlay" id={{blog.id}}>
+							<a href="#page" class="lb-close">x 关闭</a>
+							<img src="images/{{blog.id}}.jpg" class="img-responsive" alt="image01" />
+							<div>
+								<h3>{{blog.title}}</h3>
+								<p>{{blog.text}}</p>
+							</div>
+						</div>
+					</li>
+					<div class="clearfix"></div>
+				</ul>
+			</section>
+		</div>
+	</div>
+</div>
