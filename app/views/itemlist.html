@@ -8,11 +8,11 @@
 			</ul>
 			<h3>Price</h3>
 			<ul class="product-categories">
-				<li class="cat-item cat-item-42" ng-click="maxPrice=0; minPrice=10000"><a href="">ALL</a> <span class="count">(14)</span></li>
-				<li class="cat-item cat-item-42" ng-click="maxPrice=20; minPrice=0"><a href="">under$20</a> <span class="count">(14)</span></li>
-				<li class="cat-item cat-item-42" ng-click="maxPrice=50;minPrice=20"><a href="">$20-$50</a> <span class="count">(14)</span></li>
-				<li class="cat-item cat-item-42" ng-click="maxPrice=100;minPrice=50"><a href="">$50-$100</a> <span class="count">(14)</span></li>
-				<li class="cat-item cat-item-42" ng-click="maxPrice=10000;minPrice=100"><a href="">$100+</a> <span class="count">(14)</span></li>
+				<li class="cat-item cat-item-42" ng-click="priceRange={maxPrice:10000,minPrice:0}"><a href="">ALL</a> <span class="count">(14)</span></li>
+				<li class="cat-item cat-item-42" ng-click="priceRange={maxPrice:20,minPrice:0}"><a href="">under$20</a> <span class="count">(14)</span></li>
+				<li class="cat-item cat-item-42" ng-click="priceRange={maxPrice:50,minPrice:20}"><a href="">$20-$50</a> <span class="count">(14)</span></li>
+				<li class="cat-item cat-item-42" ng-click="priceRange={maxPrice:100,minPrice:50}"><a href="">$50-$100</a> <span class="count">(14)</span></li>
+				<li class="cat-item cat-item-42" ng-click="priceRange={maxPrice:10000,minPrice:100}"><a href="">$100+</a> <span class="count">(14)</span></li>
 			</ul>
 		</div>
 
@@ -54,6 +54,18 @@
 						</select>
 					</div>
 				</div>
+				<div class="sort">
+					<div class="sort-by">
+						<label>Price:</label>
+						<select ng-model="priceOption">
+							<option selected value="0">ALL</option>
+							<option value="1">under$20</option>
+							<option value="2">$20-$50</option>
+							<option value="3">$50-$100</option>
+							<option value="4">$100+</option>
+						</select>
+					</div>
+				</div>
 				<ul class="women_pagenation dc_paginationA dc_paginationA06">
 					<li class="previous">Page : </li>
 					<li class="active"><a href="#">1</a></li>
@@ -78,33 +90,32 @@
 					</div>
 				</div>
 			</div>
-			<div class="clearfix"></div>
-			<div class="row">
-				<ul>
-					<li class="col-row-4" ng-repeat="item in items | orderBy: sortorder | filter: category | filter: priceFilter">
-						<a class="cbp-vm-image" href="#/item/{{item.id}}">
-							<div class="view view-first">
-								<div class="inner_content clearfix">
-									<div class="product_image">
-										<div class="mask1"><img ng-src="images/{{item.id}}_1.jpg" alt="image" class="img-responsive zoom-img"></div>
-										<div class="mask">
-											<div class="info">Quick View</div>
-										</div>
+			{{priceRange.maxPrice}} {{priceRange}}{{priceOption}}
 
-										<div class="product_container">
-											<h4>{{item.name}}</h4>
-											<p>{{item.detail}}</p>
-											<div class="price mount item_price">{{item.price}}</div>
-											<!--											<a class="button item_add cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>-->
-										</div>
+			<div class="clearfix"></div>
+			<ul class="content-list" class="row">
+				<li class="col-sm-4" ng-scope ng-repeat="item in items | orderBy: sortorder | filter: category | filter: priceFilter">
+					<a class="cbp-vm-image" href="#/item/{{item.id}}">
+						<div class="view view-first">
+							<div class="inner_content clearfix">
+								<div class="product_image">
+									<div class="mask1"><img ng-src="images/{{item.id}}_1.jpg" alt="image" class="img-responsive zoom-img"></div>
+									<div class="mask">
+										<div class="info">Quick View</div>
+									</div>
+
+									<div class="product_container">
+										<h4>{{item.name}}</h4>
+										<p>{{item.details}}</p>
+										<div class="price mount item_price">${{item.price}}</div>
+										<!--	<a class="button item_add cbp-vm-icon cbp-vm-add" href="#">Add to cart</a>-->
 									</div>
 								</div>
 							</div>
-						</a>
-					</li>
-
-				</ul>
-			</div>
+						</div>
+					</a>
+				</li>
+			</ul>
 		</div>
 	</div>
 </div>
