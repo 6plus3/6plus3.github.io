@@ -49,9 +49,9 @@
 					<!-- start search-->
 					<div class="search-box">
 						<div id="sb-search" class="sb-search">
-							<form>
-								<input class="sb-search-input" placeholder="Enter your search item..." type="search" name="search" id="search">
-								<input class="sb-search-submit" type="submit" value="">
+							<form action="#/items">
+								<input ng-model="searchItem" class="sb-search-input" placeholder="Enter your search item..." name="search" id="search">
+								<input class="sb-search-submit" type="submit">
 								<span class="sb-icon-search"> </span>
 							</form>
 						</div>
@@ -151,7 +151,8 @@
 	<script type="text/javascript" src="lib/megamenu.js"></script>
 	<script src="lib/classie1.js"></script>
 	<script src="lib/uisearch.js"></script>
-
+    <script src="../node_modules/angular-utils-pagination/dirPagination.js"></script>
+    
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
 			setTimeout(hideURLbar, 0);

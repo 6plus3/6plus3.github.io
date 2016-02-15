@@ -22,48 +22,44 @@ shoppingApp.controller('mainCtrl',
 
 		$scope.category = $routeParams.category;
 
-		switch ($scope.priceOption) {
-		case 1:
-			$scope.priceRange = {
-				maxPrice: 20,
-				minPrice: 0
-			}
-			break;
-		case 2:
-			$scope.priceRange = {
-				maxPrice: 50,
-				minPrice: 20
-			}
-			break;
-		case 3:
-			$scope.priceRange = {
-				maxPrice: 100,
-				minPrice: 50
-			}
-			break;
-		case 4:
-			$scope.priceRange = {
-				maxPrice: 10000,
-				minPrice: 100
-			}
-			break;
-		default:
-			$scope.priceRange = {
-				maxPrice: 10000,
-				minPrice: 0
-			}
-		}
-
+    
+    
+              
 		$scope.priceRange = {
 			maxPrice: 10000,
 			minPrice: 0
 		};
-		$scope.priceFilter = function (item) {
-			if (typeof $scope.priceRange == "string") {
-				$scope.priceRange = JSON.parse($scope.priceRange);
-			}
+    
+    
+            if ($scope.priceOption===0) {
+			$scope.priceRange = {
+				maxPrice: 10000,
+				minPrice: 0
+			};}	
+            if ($scope.priceOption===1) {
+			$scope.priceRange = {
+				maxPrice: 20,
+				minPrice: 0
+			};}
+            if ($scope.priceOption===2) {
+			$scope.priceRange = {
+				maxPrice: 50,
+				minPrice: 20
+			};}
+            if ($scope.priceOption===3) {
+			$scope.priceRange = {
+				maxPrice: 100,
+				minPrice: 50
+			};}
+            if ($scope.priceOption===4) {
+			$scope.priceRange = {
+				maxPrice: 10000,
+				minPrice: 100
+			};}
+        
+		$scope.priceFilter = function (item, priceOption) {
+            
+            
 			return item.price > $scope.priceRange.minPrice && item.price <= $scope.priceRange.maxPrice;
 		};
-
-
 	});

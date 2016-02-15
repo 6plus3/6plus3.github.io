@@ -41,6 +41,7 @@
 							<option value="price">Price低到高 </option>
 							<option value="-price">Price高到低 </option>
 						</select>
+                        <div>Search:<input type="text" ng-model="searchItem" value="enter"></div>
 					</div>
 				</div>
 				<div class="sort">
@@ -54,6 +55,7 @@
 						</select>
 					</div>
 				</div>
+<!--                
 				<div class="sort">
 					<div class="sort-by">
 						<label>Price:</label>
@@ -66,6 +68,7 @@
 						</select>
 					</div>
 				</div>
+-->
 				<ul class="women_pagenation dc_paginationA dc_paginationA06">
 					<li class="previous">Page : </li>
 					<li class="active"><a href="#">1</a></li>
@@ -73,8 +76,6 @@
 				</ul>
 				<div class="clearfix"></div>
 			</div>
-
-
 			<div id="cbp-vm" class="cbp-vm-view-grid">
 				<div class="pages">
 					<div class="limiter visible-desktop">
@@ -90,11 +91,9 @@
 					</div>
 				</div>
 			</div>
-			{{priceRange.maxPrice}} {{priceRange}}{{priceOption}}
-
 			<div class="clearfix"></div>
 			<ul class="content-list" class="row">
-				<li class="col-sm-4" ng-scope ng-repeat="item in items | orderBy: sortorder | filter: category | filter: priceFilter">
+				<li class="col-sm-4" ng-scope dir-paginate="item in items | orderBy: sortorder | filter: category | filter: priceFilter| filter: searchItem | itemsPerPage: 10">
 					<a class="cbp-vm-image" href="#/item/{{item.id}}">
 						<div class="view view-first">
 							<div class="inner_content clearfix">
@@ -116,6 +115,10 @@
 					</a>
 				</li>
 			</ul>
+            <div class="text-center">
+          <dir-pagination-controls boundary-links="true" on-page-change="pageChangeHandler(newPageNumber)" ></dir-pagination-controls>
+          </div> 
+            
 		</div>
 	</div>
 </div>
