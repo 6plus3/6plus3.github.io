@@ -1436,7 +1436,7 @@ ul.breadcrumbs li {
 
 .mens-toolbar .sort {
 	float: left;
-	width: 21.5%;
+	width: 45%;
 }
 
 .sort-by {
@@ -1448,6 +1448,11 @@ ul.breadcrumbs li {
 .sort-by label {
 	font-weight: normal;
 	font-size: 1em;
+}
+
+.sort-by input {
+	height: 20px;
+	width: 60px;
 }
 
 .mens-toolbar .pages {
