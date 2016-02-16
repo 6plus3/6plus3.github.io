@@ -1,13 +1,17 @@
 'use strict';
 
-var shoppingApp = angular.module('shoppingApp', ['ngRoute','angularUtils.directives.dirPagination'])
+var shoppingApp = angular.module('shoppingApp', ['ngRoute', 'angularUtils.directives.dirPagination'])
 	.config(function ($routeProvider) {
 		$routeProvider.when('/', {
 			templateUrl: 'views/main.html',
 			controller: 'mainCtrl'
 		});
-		$routeProvider.when('/blog', {
+		$routeProvider.when('/blog/:blogId', {
 			templateUrl: 'views/blog.html',
+			controller: 'mainCtrl'
+		});
+		$routeProvider.when('/bloglist', {
+			templateUrl: 'views/bloglist.html',
 			controller: 'mainCtrl'
 		});
 		$routeProvider.when('/contact', {

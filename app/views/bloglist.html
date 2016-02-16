@@ -4,15 +4,18 @@
 			<h1 class="page-heading product-listing">
 			Blog
          </h1>
-			<div class="brand_box">
+			<div class="product-count">Showing 1 - 4 of 4 items</div>
+			<div class="brand_box" ng-repeat="blog in blogs">
 				<div class="middle-side col-xs-12 col-sm-8">
-					<h4>{{blogNow.title}}</h4>
-					<p>{{blogNow.text}}</p>
+					<a href="#blog/{{blog.id}}">
+						<h4>{{blog.title}}</h4>
+						<p>{{blog.text}}</p>
+					</a>
 				</div>
 				<div class="right-side col-xs-12 col-sm-4">
-					<img ng-src="images/{{blogNow.id}}" alt="IMG" />
+					<img ng-src="images/{{blog.id}}" alt="IMG" />
 					<br>
-					<a href="#/bloglist" class="btn btn1 btn-primary btn-normal btn-inline " target="_self">Back</a>
+					<a href="#blog/{{blog.id}}" class="btn btn1 btn-primary btn-normal btn-inline " target="_self">Read More</a>
 
 				</div>
 				<div class="clearfix"> </div>

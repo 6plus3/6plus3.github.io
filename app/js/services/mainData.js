@@ -17,17 +17,20 @@ shoppingApp.factory('mainData', function () {
 		blogs: [{
 				title: '化妆品1',
 				text: 'aaaaa',
-				id: 'image-1'
+				id: '1',
+				img: ''
 			},
 			{
 				title: '化妆品2',
 				text: 'bbbb',
-				id: 'image-2'
+				id: '2',
+				img: ''
 			},
 			{
 				title: '化妆品3',
 				text: 'ccccc',
-				id: 'image-3'
+				id: '3',
+				img: ''
 			}],
 		items: [
 			{

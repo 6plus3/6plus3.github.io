@@ -9,6 +9,8 @@ shoppingApp.controller('mainCtrl',
 		$scope.items = mainData.items;
 
 		$scope.itemNow = mainData.items[$routeParams.itemId - 1];
+		$scope.blogNow = mainData.blogs[$routeParams.blogId - 1];
+
 		if ($routeParams.itemId == mainData.items.length) {
 			$scope.itemNext = mainData.items[0];
 		} else {
@@ -22,44 +24,15 @@ shoppingApp.controller('mainCtrl',
 
 		$scope.category = $routeParams.category;
 
-    
-    
-              
-		$scope.priceRange = {
-			maxPrice: 10000,
-			minPrice: 0
-		};
-    
-    
-            if ($scope.priceOption===0) {
-			$scope.priceRange = {
-				maxPrice: 10000,
-				minPrice: 0
-			};}	
-            if ($scope.priceOption===1) {
-			$scope.priceRange = {
-				maxPrice: 20,
-				minPrice: 0
-			};}
-            if ($scope.priceOption===2) {
-			$scope.priceRange = {
-				maxPrice: 50,
-				minPrice: 20
-			};}
-            if ($scope.priceOption===3) {
-			$scope.priceRange = {
-				maxPrice: 100,
-				minPrice: 50
-			};}
-            if ($scope.priceOption===4) {
-			$scope.priceRange = {
-				maxPrice: 10000,
-				minPrice: 100
-			};}
-        
-		$scope.priceFilter = function (item, priceOption) {
-            
-            
+
+
+		$scope.priceFilter = function (item) {
+			if (!$scope.priceRange) {
+				return true;
+			}
+			if (!$scope.priceRange.maxPrice) {
+				return item.price > $scope.priceRange.minPrice;
+			}
 			return item.price > $scope.priceRange.minPrice && item.price <= $scope.priceRange.maxPrice;
 		};
 	});
